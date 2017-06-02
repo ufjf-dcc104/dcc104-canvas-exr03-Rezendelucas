@@ -34,7 +34,7 @@ function Canos(){
   this.axCenter = 0;
   this.ayCenter = 0;
 
-  this.debug = false;
+  this.debug = true;
   this.color = "black";
   this.imgKey;
 

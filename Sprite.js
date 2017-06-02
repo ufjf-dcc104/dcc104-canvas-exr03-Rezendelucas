@@ -13,7 +13,7 @@ function Sprite(x,y){
   this.vang = 0;
   this.color = "black";
   this.cooldown = 0;
-  this.debug = false;
+  this.debug = true;
   this.debugmove = false;
 }
 
@@ -67,7 +67,7 @@ Sprite.prototype.mover = function (dt) {
     if(this.vy > 0 && this.angle < 315){
       this.angle = this.angle + 100 * dt;
     }else if(this.vy < 0 && this.angle > 225){
-      this.angle = this.angle - 100 * dt;
+      this.angle = this.angle - 200 * dt;
     }
     this.y = this.y + this.vy*dt;
 };
