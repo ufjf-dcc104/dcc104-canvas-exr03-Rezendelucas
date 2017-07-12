@@ -37,6 +37,7 @@ function Canos(){
   this.debug = true;
   this.color = "black";
   this.imgKey;
+  this.point = true;
 
 }
  

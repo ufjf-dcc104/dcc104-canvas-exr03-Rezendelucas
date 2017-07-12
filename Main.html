@@ -15,7 +15,7 @@
 	</head>
 	<body>
 	  <div id="container">
-  		<canvas width="1000" height="700"></canvas>
+  		<canvas width="1000" height="600"></canvas>
   	  </div>  
   		<script>
 
@@ -40,10 +40,7 @@
         
         var player = new Sprite(250,300);//(200,200);
         player.g = 600;
-        player.colBoxX = 300;
-        player.colBoxY = 350;
-        player.colBoxWidth = 40;
-        player.colBoxHeight = 40;
+    
 
         var background_A = new Sprite(0,0);
         var background_B = new Sprite(2000,0);
@@ -56,7 +53,6 @@
 
         var life = 3;
         var score = 0;
-        var isScore = false;
        	var gameOver = false;
        	var vol = 0.05;
        	var paused = false;
@@ -85,11 +81,6 @@
           if(!gameOver){
           	if(!paused){
 
-             if(isScore){
-             	score = score +1;
-             	isScore = false;
-             }
-
              if(spawn == 0 ){
              	level.spawn();
              	spawn = 100;
@@ -104,8 +95,7 @@
           	});
           	
           	level.colidiuComPonto(player,audLoad,"Point", vol, function(inimigo, alvo){
-          		 console.log("Pontuou");
-          		 isScore = true;
+          		 score++;
           	});
 
 
@@ -162,10 +152,9 @@
        
 
       function drawHUD(){
-      	    ctx.font = "40px Arial"      
+      	    ctx.font = "80px Arial"      
         	ctx.fillStyle = "white";
-        	ctx.fillText("dt: "+ dt +" fps:"+Math.floor(1/dt), 10, 30);
-        	ctx.fillText("Score : " + score, 500, 30);
+        	ctx.fillText(score, 500, 80);
             
       };
 
@@ -176,25 +165,25 @@
         switch (e.keyCode) {
           case 32:
           	player.vy = -300;
+            e.preventDefault();
           	break;	
           case 13:
             if(paused == true){paused = false;}
             else {paused = true;}
             break;
           case 32:
-            level.fire(player, audLoad, "shot", vol);
             break;
           case 40:
-            player.vy =  400;
+            //player.vy =  400;
             break;  
           case 37:
-            player.vx = -400;
+            //player.vx = -400;
             break;
           case 38:
-            player.vy = -400;
+            //player.vy = -400;
             break;
           case 39:
-            player.vx = +400;
+            //player.vx = +400;
             break;
           default:
         }

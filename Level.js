@@ -66,8 +66,10 @@ Level.prototype.perseguirAng = function (alvo, dt) {
 
 Level.prototype.colidiuComPonto = function (alvo,audload,key,vol, resolveColisao) {
     for (var i = 0; i < this.canos.length; i++) {
-      if(this.canos[i].colidiuComPonto(alvo)){
-        resolveColisao(this.canos[i], alvo);
+      if(this.canos[i].colidiuComPonto(alvo) && this.canos[i].point == true){
+          resolveColisao(this.canos[i], alvo);
+          this.canos[i].point = false;
+          console.log("Pontuou");
       }
     }
 };
